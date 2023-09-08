@@ -33,57 +33,55 @@
 -->
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller= "com.example.numbergeneratorgame.MainPageController">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.numbergeneratorgame.MainPageController">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
     <AnchorPane VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="262.0" layoutY="66.0" mnemonicParsing="false" text="Generate Number" />
+            <Button fx:id="generateButton" layoutX="242.0" layoutY="96.0" mnemonicParsing="false" onAction="#generateButtonAction" text="Generate Start Number" />
+            <TextField editable="false" layoutX="71.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField editable="false" layoutX="14.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField editable="false" layoutX="358.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField editable="false" layoutX="300.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField editable="false" layoutX="242.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField editable="false" layoutX="184.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField editable="false" layoutX="128.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot5" editable="false" layoutX="241.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot2" editable="false" layoutX="71.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot4" editable="false" layoutX="185.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot1" editable="false" layoutX="14.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField editable="false" layoutX="531.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField editable="false" layoutX="472.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField editable="false" layoutX="415.0" layoutY="355.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot8" editable="false" layoutX="415.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot7" editable="false" layoutX="357.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot6" editable="false" layoutX="299.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot3" editable="false" layoutX="128.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot9" editable="false" layoutX="472.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <TextField fx:id="slot10" editable="false" layoutX="531.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" promptText="1000" />
+            <Text layoutX="26.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Button fx:id="button1" disable="true" layoutX="27.0" layoutY="237.0" mnemonicParsing="false" onAction="#button1Action" text="1" />
+            <Button fx:id="button2" disable="true" layoutX="83.0" layoutY="237.0" mnemonicParsing="false" onAction="#button2Action" text="2" />
+            <Button fx:id="exitButton" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#exitButtonAction" text="Exit" />
+            <Text fx:id="randomNumberField" layoutX="288.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="button3" disable="true" layoutX="140.0" layoutY="237.0" mnemonicParsing="false" onAction="#button3Action" text="3" />
+            <Button fx:id="button4" disable="true" layoutX="197.0" layoutY="237.0" mnemonicParsing="false" onAction="#button4Action" text="4" />
+            <Button fx:id="button5" disable="true" layoutX="253.0" layoutY="237.0" mnemonicParsing="false" onAction="#button5Action" text="5" />
+            <Button fx:id="button6" disable="true" layoutX="311.0" layoutY="237.0" mnemonicParsing="false" onAction="#button6Action" text="6" />
+            <Button fx:id="button7" disable="true" layoutX="369.0" layoutY="237.0" mnemonicParsing="false" onAction="#button7Action" text="7" />
+            <Button fx:id="button8" disable="true" layoutX="427.0" layoutY="237.0" mnemonicParsing="false" onAction="#button8Action" text="8" />
+            <Button fx:id="button9" disable="true" layoutX="484.0" layoutY="237.0" mnemonicParsing="false" onAction="#button9Action" text="9" />
+            <Button fx:id="button10" disable="true" layoutX="543.0" layoutY="237.0" mnemonicParsing="false" onAction="#button10Action" text="10" />
+            <Text fx:id="messageText" layoutX="139.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="327.0" />
       </children>
     </AnchorPane>
   </children>
