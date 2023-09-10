@@ -60,7 +60,7 @@ public class MainPageController implements Initializable {
     private int randomNumber;
 
 
-    public void generateRandomNumber() {
+      public void generateRandomNumber() {
 
     if (numList.size() >= 1000) {
         randomNumberField.setText("You have run out of original numbers! Please close and reopen the application.");
@@ -71,24 +71,9 @@ public class MainPageController implements Initializable {
     do {
         newRandomNumber = rand.nextInt(1000) + 1;
     } while (numList.contains(newRandomNumber));
-    if (areAllSlotsFilled()) {
-        randomNumberField.setText(""); // Set to an empty value
-    } else {
-        randomNumberField.setText(String.valueOf(randomNumber));
-    }
-}
 
-private boolean areAllSlotsFilled() {
-    return !slot1.getText().isEmpty() &&
-           !slot2.getText().isEmpty() &&
-           !slot3.getText().isEmpty() &&
-           !slot4.getText().isEmpty() &&
-           !slot5.getText().isEmpty() &&
-           !slot6.getText().isEmpty() &&
-           !slot7.getText().isEmpty() &&
-           !slot8.getText().isEmpty() &&
-           !slot9.getText().isEmpty() &&
-           !slot10.getText().isEmpty();
+    randomNumber = newRandomNumber;
+    randomNumberField.setText(String.valueOf(randomNumber));
 }
 
 
