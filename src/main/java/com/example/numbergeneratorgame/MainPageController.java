@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.*;
 
 
+
 public class MainPageController implements Initializable {
 
     public Text randomNumberField;
@@ -99,7 +100,7 @@ public class MainPageController implements Initializable {
 
     public void exitButtonAction(ActionEvent event) {
             Alert alertConfirm = new Alert(Alert.AlertType.CONFIRMATION);
-            alertConfirm.setTitle("Number Generator ");
+            alertConfirm.setTitle("Digit Disorder");
             alertConfirm.setHeaderText(null);
             alertConfirm.setContentText("Are you sure you would like to exit the game? You will lose all progress.");
             Optional<ButtonType> result = alertConfirm.showAndWait();
@@ -123,6 +124,21 @@ public class MainPageController implements Initializable {
           System.out.println(numList);
 
           generateRandomNumber();
+
+
+
+          int slot1IntValue = Integer.parseInt(slot1.getText());
+          if (randomNumber < slot1IntValue) {
+            Alert alertConfirm = new Alert(Alert.AlertType.ERROR);
+            alertConfirm.setTitle("Digit Disorder");
+            alertConfirm.setHeaderText(null);
+            alertConfirm.setContentText("You have lost!");
+            Optional<ButtonType> result = alertConfirm.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                resetGame();
+            }
+
+          }
       }
     }
 
@@ -263,4 +279,40 @@ public class MainPageController implements Initializable {
 
         }
     }
+
+    public void resetGame(){
+    button1.setDisable(false);
+    button2.setDisable(false);
+    button3.setDisable(false);
+    button4.setDisable(false);
+    button5.setDisable(false);
+    button6.setDisable(false);
+    button7.setDisable(false);
+    button8.setDisable(false);
+    button9.setDisable(false);
+    button10.setDisable(false);
+
+    slot1.clear();
+    slot2.clear();
+    slot3.clear();
+    slot4.clear();
+    slot5.clear();
+    slot6.clear();
+    slot7.clear();
+    slot8.clear();
+    slot9.clear();
+    slot10.clear();
+
+    randomNumberField.setText("");
+    generateButton.setDisable(false);
+    messageText.setText("");
+    numList.clear();
+    }
+
+    public void restartButtonAction(ActionEvent event) {
+    resetGame();
+
+    }
+
+
 }
