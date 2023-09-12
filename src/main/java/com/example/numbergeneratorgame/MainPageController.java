@@ -125,14 +125,12 @@ public class MainPageController implements Initializable {
 
           generateRandomNumber();
 
-
-
           int slot1IntValue = Integer.parseInt(slot1.getText());
           if (randomNumber < slot1IntValue) {
             Alert alertConfirm = new Alert(Alert.AlertType.ERROR);
             alertConfirm.setTitle("Digit Disorder");
             alertConfirm.setHeaderText(null);
-            alertConfirm.setContentText("You have lost!");
+            alertConfirm.setContentText("You have lost! Please press OK to start another game.");
             Optional<ButtonType> result = alertConfirm.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 resetGame();
@@ -145,9 +143,8 @@ public class MainPageController implements Initializable {
     @FXML
     public void button2Action(ActionEvent event) {
 
-        if (numList.contains(randomNumber))
-        {
-        messageText.setText("That number has already been used, please generate a new number.");
+        if (numList.contains(randomNumber)) {
+            messageText.setText("That number has already been used, please generate a new number.");
         } else {
             slot2.setText(String.valueOf(randomNumber));
             button2.setDisable(true);
@@ -156,6 +153,17 @@ public class MainPageController implements Initializable {
 
             generateRandomNumber();
 
+            int slot2IntValue = Integer.parseInt(slot2.getText());
+            if () {
+                Alert alertConfirm = new Alert(Alert.AlertType.ERROR);
+                alertConfirm.setTitle("Digit Disorder");
+                alertConfirm.setHeaderText(null);
+                alertConfirm.setContentText("You have lost! Please press OK to start another game.");
+                Optional<ButtonType> result = alertConfirm.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    resetGame();
+                }
+            }
         }
     }
 
@@ -171,6 +179,8 @@ public class MainPageController implements Initializable {
             System.out.println(numList);
 
             generateRandomNumber();
+
+            int slot3IntValue = Integer.parseInt(slot3.getText());
 
         }
     }
