@@ -51,10 +51,23 @@ public class MainPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+// Sets buttons to disabled until the Generate Start Number is pressed.
+    button1.setDisable(true);
+    button2.setDisable(true);
+    button3.setDisable(true);
+    button4.setDisable(true);
+    button5.setDisable(true);
+    button6.setDisable(true);
+    button7.setDisable(true);
+    button8.setDisable(true);
+    button9.setDisable(true);
+    button10.setDisable(true);
+
 
     }
 
     List<Integer> numList = new ArrayList<>();
+
 
 
 /** Variable for the random number. */
@@ -113,38 +126,28 @@ public class MainPageController implements Initializable {
     @FXML
     public void button1Action(ActionEvent event) {
 
-      if (numList.contains(randomNumber))
+    if (numList.contains(randomNumber))
         {
-                System.out.println("That number was already used, please generate a new number.");
+        messageText.setText("That number has already been used, please generate a new number.");
+        } else {
+            slot1.setText(String.valueOf(randomNumber));
+            button1.setDisable(true);
+            numList.add(randomNumber);
+            System.out.println(numList);
+
+            generateRandomNumber();
+
+            int slot1IntValue = Integer.parseInt(slot1.getText());
+
         }
-        else {
-          slot1.setText(String.valueOf(randomNumber));
-          button1.setDisable(true);
-          numList.add(randomNumber);
-          System.out.println(numList);
-
-          generateRandomNumber();
-
-          int slot1IntValue = Integer.parseInt(slot1.getText());
-          if (randomNumber < slot1IntValue) {
-            Alert alertConfirm = new Alert(Alert.AlertType.ERROR);
-            alertConfirm.setTitle("Digit Disorder");
-            alertConfirm.setHeaderText(null);
-            alertConfirm.setContentText("You have lost! Please press OK to start another game.");
-            Optional<ButtonType> result = alertConfirm.showAndWait();
-            if (result.isPresent() && result.get() == ButtonType.OK) {
-                resetGame();
-            }
-
-          }
-      }
     }
 
     @FXML
     public void button2Action(ActionEvent event) {
 
-        if (numList.contains(randomNumber)) {
-            messageText.setText("That number has already been used, please generate a new number.");
+    if (numList.contains(randomNumber))
+        {
+        messageText.setText("That number has already been used, please generate a new number.");
         } else {
             slot2.setText(String.valueOf(randomNumber));
             button2.setDisable(true);
@@ -154,16 +157,7 @@ public class MainPageController implements Initializable {
             generateRandomNumber();
 
             int slot2IntValue = Integer.parseInt(slot2.getText());
-            if () {
-                Alert alertConfirm = new Alert(Alert.AlertType.ERROR);
-                alertConfirm.setTitle("Digit Disorder");
-                alertConfirm.setHeaderText(null);
-                alertConfirm.setContentText("You have lost! Please press OK to start another game.");
-                Optional<ButtonType> result = alertConfirm.showAndWait();
-                if (result.isPresent() && result.get() == ButtonType.OK) {
-                    resetGame();
-                }
-            }
+
         }
     }
 
@@ -323,6 +317,15 @@ public class MainPageController implements Initializable {
     resetGame();
 
     }
+
+    private boolean isListInAscendingOrder(List<Integer> list) {
+    for (int i = 1; i < list.size(); i++) {
+        if (list.get(i) < list.get(i - 1)) {
+            return false;
+        }
+    }
+    return true;
+}
 
 
 }
