@@ -8,10 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-
 import java.net.URL;
 import java.util.*;
-
 
 
 public class MainPageController implements Initializable {
@@ -63,10 +61,36 @@ public class MainPageController implements Initializable {
     button9.setDisable(true);
     button10.setDisable(true);
 
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+
 
     }
+    ArrayList<Integer> numList = new ArrayList<>();
 
-    List<Integer> numList = new ArrayList<>();
+  public static boolean isInNumericalOrderIgnoreZeros(List<Integer> numList) {
+        Integer previousValue = null;
+
+        for (Integer num : numList) {
+            if (num != 0) {
+                if (previousValue != null && num < previousValue) {
+                    System.out.println("List out of order!");
+                    return false;
+                }
+                previousValue = num;
+            }
+        }
+
+        return true;
+    }
 
 
 
@@ -123,6 +147,9 @@ public class MainPageController implements Initializable {
 
     }
 
+////////// BUTTONS ////////////
+
+
     @FXML
     public void button1Action(ActionEvent event) {
 
@@ -132,31 +159,39 @@ public class MainPageController implements Initializable {
         } else {
             slot1.setText(String.valueOf(randomNumber));
             button1.setDisable(true);
-            numList.add(randomNumber);
-            System.out.println(numList);
 
             generateRandomNumber();
 
             int slot1IntValue = Integer.parseInt(slot1.getText());
+            numList.set(0, slot1IntValue);
+            System.out.println(numList);
+
+        if (isInNumericalOrderIgnoreZeros(numList)) {
+            System.out.println("List is in order, ignoring 0s.");
+        }
+
 
         }
     }
 
+
     @FXML
     public void button2Action(ActionEvent event) {
 
-    if (numList.contains(randomNumber))
+   if (numList.contains(randomNumber))
         {
         messageText.setText("That number has already been used, please generate a new number.");
         } else {
             slot2.setText(String.valueOf(randomNumber));
             button2.setDisable(true);
-            numList.add(randomNumber);
-            System.out.println(numList);
 
             generateRandomNumber();
 
             int slot2IntValue = Integer.parseInt(slot2.getText());
+            numList.set(1, slot2IntValue);
+            System.out.println(numList);
+
+
 
         }
     }
@@ -169,12 +204,13 @@ public class MainPageController implements Initializable {
         } else {
             slot3.setText(String.valueOf(randomNumber));
             button3.setDisable(true);
-            numList.add(randomNumber);
-            System.out.println(numList);
 
             generateRandomNumber();
 
             int slot3IntValue = Integer.parseInt(slot3.getText());
+            numList.set(2, slot3IntValue);
+            System.out.println(numList);
+
 
         }
     }
@@ -186,7 +222,11 @@ public class MainPageController implements Initializable {
         } else {
             slot4.setText(String.valueOf(randomNumber));
             button4.setDisable(true);
-            numList.add(randomNumber);
+
+            generateRandomNumber();
+
+            int slot4IntValue = Integer.parseInt(slot3.getText());
+            numList.set(3, slot4IntValue);
             System.out.println(numList);
 
             generateRandomNumber();
@@ -285,16 +325,17 @@ public class MainPageController implements Initializable {
     }
 
     public void resetGame(){
-    button1.setDisable(false);
-    button2.setDisable(false);
-    button3.setDisable(false);
-    button4.setDisable(false);
-    button5.setDisable(false);
-    button6.setDisable(false);
-    button7.setDisable(false);
-    button8.setDisable(false);
-    button9.setDisable(false);
-    button10.setDisable(false);
+    // Sets buttons to disabled until the Generate Start Number is pressed.
+    button1.setDisable(true);
+    button2.setDisable(true);
+    button3.setDisable(true);
+    button4.setDisable(true);
+    button5.setDisable(true);
+    button6.setDisable(true);
+    button7.setDisable(true);
+    button8.setDisable(true);
+    button9.setDisable(true);
+    button10.setDisable(true);
 
     slot1.clear();
     slot2.clear();
@@ -311,6 +352,18 @@ public class MainPageController implements Initializable {
     generateButton.setDisable(false);
     messageText.setText("");
     numList.clear();
+
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+    numList.add(0);
+
     }
 
     public void restartButtonAction(ActionEvent event) {
@@ -318,14 +371,7 @@ public class MainPageController implements Initializable {
 
     }
 
-    private boolean isListInAscendingOrder(List<Integer> list) {
-    for (int i = 1; i < list.size(); i++) {
-        if (list.get(i) < list.get(i - 1)) {
-            return false;
-        }
-    }
-    return true;
-}
+
 
 
 }
